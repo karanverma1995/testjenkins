@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://use.fontawesome.com/c938981c53.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/js/EasePack.min.js"></script>
+<script src="https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/js/rAF.js"></script>
+<script src="https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/js/TweenLite.min.js"></script>
+<body>
+	<div class="container">
+		<form method="post" action="/update/{{emp.id}}/">
+		{% csrf_token %}	
+			<label>Name</label><br>
+			<input type="text" name="name" value="{{emp.name}}"><br>
+			<label>Department</label><br>
+			<input type="text" name="department" value="{{emp.department}}"><br>
+			<label>Designation</label><br>
+			<input type="text" name="designation" value="{{emp.designation}}"><br>
+			<label>Employee_ID</label><br>
+			<input type="text" name="employee_id" value="{{emp.employee_id}}"><br>
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	</div>	
+</body>
+</html>

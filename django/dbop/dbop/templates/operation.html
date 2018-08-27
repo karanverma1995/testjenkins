@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://use.fontawesome.com/c938981c53.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/js/EasePack.min.js"></script>
+<script src="https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/js/rAF.js"></script>
+<script src="https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/js/TweenLite.min.js"></script>
+
+<style>
+	.button_mar{
+		margin-top: 1%;
+                width:27%;
+	}
+        
+        .insert_button{
+               margin-bottom:2%;
+        }
+</style>
+<body>
+	<div class="container-fluid">
+		<h2 style="color: darkgrey;text-align:center;">Employee Table</h2>
+		<div>
+		    <a href = "/createemployee/"><button type="submit" class="btn btn-info insert_button">Insert Record</button></a>
+		</div>	
+		<table class="table table-bordered table-striped">
+			<tr>
+				<th>S.No</th>
+				<th>Name</th>
+				<th>Designation</th>
+				<th>Department</th>
+				<th>Actions</th>
+			</tr>
+			<tbody>
+				{% for emp in emp %}
+				<tr>	
+					<td>{{forloop.counter}}</td>
+					<td>{{emp.name}}</td>
+					<td>{{emp.designation}}</td>
+					<td>{{emp.department}}</td>
+					<td>
+						<input type="hidden" name="update" value="{{emp.id}}">	
+						<a href="/update/{{emp.id}}/"><button type="submit" class="btn btn-primary">Update</button></a>
+						<form action="/delete/{{emp.id}}/" method="post">
+						{% csrf_token %}	
+							<input type="hidden" name="delete" value="{{emp.id}}">	
+							<button type="submit" class="btn btn-danger button_mar">Delete</button>
+						</form>
+					</td>	
+				</tr>
+				{% endfor %}
+			</tbody>		
+		</table>
+	</div>	
+</body>
+</html>
+<script>
+  $('.button_mar').click(function(){
+      var c = confirm("Are you sure you want to delete this record");
+      if (c == true){
+        return true;
+      }
+      else {
+        return false;
+      }  
+
+});
+
+</script>
