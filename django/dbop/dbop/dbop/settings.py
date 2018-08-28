@@ -80,7 +80,7 @@ DATABASES = {
         'NAME': 'newdb',
         'USER': 'root',
         'PASSWORD': 'root',
-        'HOST': '172.17.0.2',
+        'HOST': '193.169.34.10',
         'PORT': '',
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
