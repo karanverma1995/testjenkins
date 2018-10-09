@@ -4,6 +4,8 @@ FROM ubuntu:17.10
 FROM python:2.7
  ENV PYTHONUNBUFFERED 1
  WORKDIR /code
+ RUN chgrp -R 0 /code/ && \
+     chmod -R g=u /code/
  ADD requirements.txt /code/
  RUN sudo pip install --upgrade setuptools 
  RUN sudo pip install -r requirements.txt
